@@ -1,0 +1,25 @@
+.width{
+    width: 100%;
+}
+
+.nav-bar{
+    justify-content: center;
+}
+
+.submit{
+    width: 100%;
+}
+
+.card{
+    border: rgb(160, 51, 51) solid 1px;
+    border-radius: 5px;
+}
+
+
+.width1{
+    width: 25%;
+}
+
+.edit{
+    size: 1rem;
+}

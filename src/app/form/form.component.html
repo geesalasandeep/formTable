@@ -1,0 +1,86 @@
+<mat-toolbar class="nav-bar">
+    <span> Employee Form </span>
+</mat-toolbar>
+
+
+
+<div class="container">
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <div class="col-md-8 offset-md-2">
+
+
+                    <form [formGroup]="profile">
+                        <mat-form-field class="width mt-2 " appearance="outline" floatLabel="auto">
+                            <mat-label>EmpID:</mat-label>
+                            <input type="text" formControlName="empId" matInput required>
+                        </mat-form-field>
+                        <br>
+
+                        <mat-form-field class="width" appearance="outline">
+                            <mat-label>Name:</mat-label>
+                            <input type="text" formControlName="employeeName" matInput required>
+                        </mat-form-field>
+                        <br>
+
+                        <mat-form-field class="width" appearance="outline">
+                            <mat-label>Email:</mat-label>
+                            <input type="email" formControlName="empEmail" matInput required>
+                        </mat-form-field>
+                        <br>
+
+                        <mat-form-field class="width" appearance="outline">
+                            <mat-label>Phone Number:</mat-label>
+                            <input type="number" formControlName="PhoneNumber" matInput required>
+                        </mat-form-field>
+                        <br>
+
+                        <div class="card-body card">
+                            <div class="row">
+
+                                <div formArrayName='Skill' *ngFor="let skill of skillControls.controls;index as i">
+                                    <div [formGroupName]='i'>
+                                        <mat-form-field class="me-3 width1" appearance="outline">
+                                            <mat-label>Skill:</mat-label>
+                                            <input type="text" formControlName="skills" matInput required>
+                                        </mat-form-field>
+                                        <mat-form-field class="me-3 width1" appearance="outline">
+                                            <mat-label>Proficiency:</mat-label>
+                                            <input type="text" formControlName="profinecy" matInput required>
+                                        </mat-form-field>
+                                        <mat-form-field class="me-3 width1" appearance="outline">
+                                            <mat-label>Experience:</mat-label>
+                                            <input type="text" formControlName="exp" matInput required>
+                                        </mat-form-field>
+
+                                        <button type="button" class="delete ms-4" (click)="delete(i)" color="warn"
+                                            mat-raised-button>
+                                            <mat-icon>delete</mat-icon>
+                                        </button>
+                                    </div>
+
+
+
+                                </div>
+                                <!-- <input type="text" class="width" class="form-control mt-2 mb-2" [formControlName] = "i" > -->
+                            </div>
+
+                            <div>
+                                <button type="button" class="width mb-3" (click)="addSkill()" mat-raised-button
+                                    color="primary">Skill <mat-icon>add_circle</mat-icon> </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 offset-md-8">
+      <button class="mt-2 submit"  (click)="edit()" mat-raised-button color="accent">Edit</button>
+
+      <button class="mt-2 submit"  (click)="onSubmit()" mat-raised-button color="warn">Submit</button>
+    </div>
+</div>

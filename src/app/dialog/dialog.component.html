@@ -1,0 +1,40 @@
+<!-- <p>dialog works!</p> -->
+
+<h2 mat-dialog-title> Edit the details </h2>
+<mat-dialog-content>
+    <form [formGroup]="profile" >
+        <mat-form-field class="width mt-2 " appearance="outline" floatLabel="auto">
+            <mat-label>EmpID:</mat-label>
+            <input type="text" formControlName="empId" matInput required>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="width" appearance="outline">
+            <mat-label>Name:</mat-label>
+            <input type="text" formControlName="employeeName" matInput required>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="width" appearance="outline">
+            <mat-label>Email:</mat-label>
+            <input type="email" formControlName="empEmail" matInput required>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="width" appearance="outline">
+            <mat-label>Phone Number:</mat-label>
+            <input type="number" formControlName="PhoneNumber" matInput required>
+        </mat-form-field>
+        <br>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mt-2" type="button"  (click) = "edit(row?.id)" mat-raised-button color="accent">submit</button>
+
+</mat-dialog-actions>
+
+
+
+
+

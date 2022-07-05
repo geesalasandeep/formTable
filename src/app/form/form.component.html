@@ -1,10 +1,4 @@
-<mat-toolbar class="nav-bar">
-    <span> Employee Form </span>
-</mat-toolbar>
-
-
-
-<div class="container">
+<div class="container-fluid content-box " id="{{storedTheme}}">
     <div class="card-body">
         <div class="row">
             <div class="col">
@@ -35,10 +29,8 @@
                             <input type="number" formControlName="PhoneNumber" matInput required>
                         </mat-form-field>
                         <br>
-
                         <div class="card-body card">
                             <div class="row">
-
                                 <div formArrayName='Skill' *ngFor="let skill of skillControls.controls;index as i">
                                     <div [formGroupName]='i'>
                                         <mat-form-field class="me-3 width1" appearance="outline">
@@ -53,34 +45,25 @@
                                             <mat-label>Experience:</mat-label>
                                             <input type="text" formControlName="exp" matInput required>
                                         </mat-form-field>
-
-                                        <button type="button" class="delete ms-4" (click)="delete(i)" color="warn"
-                                            mat-raised-button>
+                                        <button type="button" class="delete ms-4" (click)="delete(i)" color="warn" mat-raised-button>
                                             <mat-icon>delete</mat-icon>
                                         </button>
                                     </div>
-
-
-
                                 </div>
                                 <!-- <input type="text" class="width" class="form-control mt-2 mb-2" [formControlName] = "i" > -->
                             </div>
-
                             <div>
-                                <button type="button" class="width mb-3" (click)="addSkill()" mat-raised-button
-                                    color="primary">Skill <mat-icon>add_circle</mat-icon> </button>
+                                <button type="button" class="width mb-3" (click)="addSkill()" mat-raised-button color="primary">Skill <mat-icon>add_circle</mat-icon> </button>
                             </div>
                         </div>
-
                     </form>
-
                 </div>
             </div>
         </div>
     </div>
     <div class="col-md-2 offset-md-8">
-      <button class="mt-2 submit"  (click)="edit()" mat-raised-button color="accent">Edit</button>
+        <button class="mt-2 submit" (click)="edit()" mat-raised-button color="accent">Edit</button>
 
-      <button class="mt-2 submit"  (click)="onSubmit()" mat-raised-button color="warn">Submit</button>
+        <button class="mt-2 submit" (click)="onSubmit()" mat-raised-button color="warn">Submit</button>
     </div>
 </div>

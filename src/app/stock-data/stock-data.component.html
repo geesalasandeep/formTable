@@ -1,31 +1,27 @@
-<!-- <p>stock-data works!</p> -->
-
-<input #queryDate type="date"  class="form-control"  placeholder="enter date">
-<button type="submit" (click) = "getStock(queryDate.valueAsDate)" class="form-control"> submit</button>
-
-
-
-
-
-
-
-<!-- <table class="table"  >
-  <tr>
-    <th>Date</th>
-    <th>Open</th>
-    <th>High</th>
-    <th>Low</th>
-    <th>Close</th>
-  </tr>
-  <tr *ngFor = "let data of stockData">
-    <td> {{data.date}} </td>
-    <td> {{data.open}} </td>
-    <td> {{data.high}} </td>
-    <td> {{data.low}} </td>
-    <td> {{data.close}} </td>
-  </tr>
+<!-- <mat-toolbar class="nav-bar">
+    <div class="ms-auto">
+        <mat-button-toggle-group class="theme-Options" name="theme-Options" aria-label="theme-Options">
+            <mat-button-toggle (click)="setTheme('theme-light')">light</mat-button-toggle>
+            <mat-button-toggle (click)="setTheme('theme-dark')">Dark</mat-button-toggle>
+        </mat-button-toggle-group>
+        <mat-slide-toggle [(ngModel)]="isChecked">Slide Toggle Checked: {{isChecked}}</mat-slide-toggle>
+    </div>
+</mat-toolbar> -->
 
 
-
-</table> -->
-
+<div class="wrapper" id="{{storedTheme}}">
+    <div class="row">
+        <div class="col-md-3 mt-2 mb-3 ml-1 " *ngFor="let product of products">
+            <div class="card">
+                <img [src]="product.productImageURL" [alt]="product.productName" height="200px" width="100%">
+                <div class="card-body">
+                    <div class="product">
+                        {{ product.productName }}
+                    </div>
+                    <div class="productPrice">
+                        {{ product.productPrice | currency : 'INR' }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

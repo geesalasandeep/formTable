@@ -13,6 +13,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { StockDataComponent } from './stock-data/stock-data.component';
 import { SeachPipe } from './seach.pipe';
 import { SearchPipe } from './search.pipe';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -24,7 +25,8 @@ import { SearchPipe } from './search.pipe';
     DialogComponent,
     StockDataComponent,
     SeachPipe,
-    SearchPipe
+    SearchPipe,
+    HeaderComponent
   ],
   entryComponents:[DialogComponent],
   imports: [

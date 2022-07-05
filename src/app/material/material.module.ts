@@ -10,6 +10,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
+
 
 
 
@@ -26,8 +29,9 @@ const material = [
                   MatTableModule,
                   MatSnackBarModule,
                   MatPaginatorModule,
-                  MatDialogModule
-                  
+                  MatDialogModule,
+                  MatButtonToggleModule
+
                 ]
 
 @NgModule({

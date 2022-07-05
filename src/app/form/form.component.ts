@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { FormBuilder,FormsModule, FormGroup, NgForm, Validators, FormArray, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TableComponent } from '../table/table.component';
@@ -9,7 +9,7 @@ import { TalkService } from '../talk.service';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit,AfterContentChecked {
   profile:  FormGroup;
   id: any;
   employeeName: any;
@@ -17,6 +17,8 @@ export class FormComponent implements OnInit {
   PhoneNumber: any;
   empId: any;
   editId: any;
+  storedTheme: string;
+
 
   constructor
   (
@@ -35,24 +37,23 @@ export class FormComponent implements OnInit {
       empEmail:[''],
       Skill : this.fb.array([this.initializeSkill()])
     });
-
-    this.router.queryParams.subscribe(res=>{
+      this.router.queryParams.subscribe(res=>{
       this.editId = res?.id;
       if(this.editId){
         this.talk.getEmpData(this.editId).subscribe(res=>{
           this.profile.get('empId').patchValue(res?.empId),
           this.profile.get('employeeName').patchValue(res?.employeeName),
-          this.profile.get('empEmail').patchValue(res?.empEmail),
+          this.profile.get('empEmail').patchValue(res?.empEmail)  ,
           this.profile.get('PhoneNumber').patchValue(res?.PhoneNumber)
 
         })
       }
     })
-
-
-
   }
 
+  ngAfterContentChecked(): void {
+    this.storedTheme  = localStorage.getItem('theme-color')
+  }
 
   onSubmit(){
       this.talk.post(this.profile.value).subscribe((res)=>{
@@ -83,9 +84,9 @@ export class FormComponent implements OnInit {
   edit(){
     this.talk.edit(this.profile.value,this.editId).subscribe(res =>{
       console.log(res);
-
     })
   }
+
 
 
 

@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">TY</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="form">Form</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="table">Table</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="stock">Stock</a>
+                </li>
+            </ul>
+            <ul style="list-style-type:none;">
+                <li class="ms-auto">
+                    <mat-button-toggle-group class="theme-Options" name="theme-Options" aria-label="theme-Options">
+                        <mat-button-toggle (click)="setTheme('theme-light')">light</mat-button-toggle>
+                        <mat-button-toggle (click)="setTheme('theme-dark')">Dark</mat-button-toggle>
+                    </mat-button-toggle-group>
+                    <!-- <mat-slide-toggle [(ngModel)]="isChecked">Slide Toggle Checked: {{isChecked}}</mat-slide-toggle> -->
+                </li>
+
+
+
+            </ul>
+
+        </div>
+    </div>
+</nav>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { StockService } from '../stock.service';
 
 @Component({
@@ -6,31 +6,42 @@ import { StockService } from '../stock.service';
   templateUrl: './stock-data.component.html',
   styleUrls: ['./stock-data.component.css']
 })
-export class StockDataComponent implements OnInit {
-  stockData;
-  filter: any;
-  stockDate: any;
+export class StockDataComponent implements OnInit,AfterContentChecked {
 
-  constructor(private stock : StockService) { }
+  storedTheme : string;
+  products: any;
+  message: string;
+  error: string;
 
-  search;
+  constructor(private prod : StockService) { }
+
 
   ngOnInit(): void {
+    this.getAllProducts();
   }
 
-  getStock(queryDate : any){
+  ngAfterContentChecked(): void {
+    this.storedTheme  = localStorage.getItem('theme-color')
+  }
 
-    return this.stock.getStock().subscribe((res)=>{
-    this.stockData  = res.data;
-    //  console.log(queryDate);
-      this.stockData.forEach((element,index,array) => {
-        console.log(element.date);
-
-      });
-
-
-
+  getAllProducts(){
+    this.prod.getProducts().subscribe((res)=>{
+      if(!res.error){
+        this.message = 'products fetched'
+        this.products = res.products;
+        setTimeout(() => {
+          this.message = '';
+        }, 4000);
+      }
+      else{
+        this.error = "could not fetch the products";
+      }
+    }, err =>{
+      this.error = 'server error'
     })
   }
+
+
+
 
 }

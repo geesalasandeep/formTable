@@ -1,11 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterContentChecked, Component, OnInit, ViewChild } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { DialogComponent } from '../dialog/dialog.component';
-import { FormComponent } from '../form/form.component';
+
 import { TalkService } from '../talk.service';
 
 
@@ -14,7 +13,7 @@ import { TalkService } from '../talk.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit,AfterContentChecked {
 click = false ;
   // details;
   list;
@@ -24,7 +23,7 @@ click = false ;
   matRowDef;
   deleteId;
   tableData;
-newid;
+  newid;
 
   editId:FormControl;
 
@@ -37,23 +36,34 @@ newid;
     'empId',
     'empEmail',
     'PhoneNumber',
-    'edit',
-    'delete'
+    // 'edit',
+    // 'delete'
   ]
   empEmail: any;
   employeeName: any;
   PhoneNumber: any;
   empId: any;
+  storedTheme;
+  // storedTheme : string = localStorage.getItem('theme-color');
+
   constructor(private talk: TalkService ,
               public dialog : MatDialog,
               private route : Router) { }
 
   ngOnInit(): void {
+
+
+
     this.getDetails()
     // this.newid = this.editId
     this.dataSource.paginator=this.paginator
 
   }
+
+  ngAfterContentChecked(): void {
+    this.storedTheme  = localStorage.getItem('theme-color')
+  }
+
 
   getDetails() {
     return this.talk.getDetails().subscribe((res) => {

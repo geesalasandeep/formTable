@@ -3,9 +3,15 @@
     {
       "empId": "wertyuiop",
       "employeeName": "dsfghjkl",
-      "PhoneNumber": 989797,
+      "PhoneNumber": 98979711111,
       "empEmail": "xcvbnm",
-      "Skill": [],
+      "Skill": [
+        {
+          "skills": "",
+          "profinecy": "",
+          "exp": ""
+        }
+      ],
       "id": "324567"
     },
     {
@@ -69,6 +75,20 @@
       "empEmail": "wertyu",
       "Skill": [],
       "id": "biCZfUW"
+    },
+    {
+      "empId": "1432",
+      "employeeName": "sandeep",
+      "PhoneNumber": 9897654578,
+      "empEmail": "sandeep11111111111111111111111@gmail.com",
+      "Skill": [
+        {
+          "skills": "",
+          "profinecy": "",
+          "exp": ""
+        }
+      ],
+      "id": "XXMtfGS"
     }
   ]
 }

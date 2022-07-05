@@ -1,4 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+    background-color: var(--primary);
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+    --primary: #fafafa;
+    --secondary: #000000;
+    --black: #000000;
+    --brown: #dfd9d9;
+    --success: #0bb922;
+    --danger: #ff0000;
+    --yellow: #036d8d;
+}
+
+#theme-dark {
+    --primary: #131310;
+    --secondary: #ffffff;
+    --black: #ffffff;
+    --brown: #ecc5a2;
+    --success: #05e924;
+    --danger: #e20c0c;
+    --yellow: #ff0000;
+}
+
+.table {
+    background-color: var(--primary);
+}
+
+
+/* .th {
+    color: var(--yellow);
+} */
+
+.th {
+    background-color: #17bcee;
+    color: var(--secondary);
+    font-size: larger;
+}
+
+.td {
+    color: var(--secondary);
+}
+
+.wrapper {
+    background-color: var(--primary);
+}
+
+p,
+h1 {
+    color: var(--secondary);
+}
+
+.card-body {
+    background-color: var(--brown);
+}
+
+.productPrice,
+.product {
+    background-color: var(--brown);
+}
